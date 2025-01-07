@@ -718,6 +718,11 @@ static int ffm_sink_prepare(NSinkInterface *iface, NRequest *request)
 		};
 	}
 
+	if (!repeat) {
+		copy->repeat = 1;
+		copy->playback_time = 30;
+	}
+
 	N_DEBUG (LOG_CAT "prep effect %s, repeat %d times, duration of %d ms",
 			key, copy->repeat, copy->playback_time);
 
